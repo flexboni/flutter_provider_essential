@@ -21,7 +21,7 @@ class _Overview07State extends State<Overview07> {
         providers: [
           ChangeNotifierProvider<Dog>(
               create: (context) =>
-                  Dog(name: 'dog06', breed: 'breed06', age: 3)),
+                  Dog(name: 'dog07', breed: 'breed07', age: 3)),
           FutureProvider<int>(
               initialData: 0,
               create: (context) {
