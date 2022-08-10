@@ -1,12 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_provider_essential/app_router.dart';
-import 'package:flutter_provider_essential/provider_overview_02/model/dog.dart'
-    as over_view_02_dog;
-import 'package:flutter_provider_essential/provider_overview_04/model/dog.dart'
-    as over_view_04_dog;
-import 'package:flutter_provider_essential/provider_overview_05/model/dog.dart'
-    as over_view_05_dog;
-import 'package:provider/provider.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,26 +10,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MultiProvider(
-      providers: [
-        Provider<over_view_02_dog.Dog>(
-            create: (context) =>
-                over_view_02_dog.Dog(name: 'Sun', breed: 'Bulldog', age: 3)),
-        ChangeNotifierProvider<over_view_04_dog.Dog>(
-            create: (context) =>
-                over_view_04_dog.Dog(name: 'dog04', breed: 'breed04')),
-        ChangeNotifierProvider<over_view_05_dog.Dog>(
-            create: (context) =>
-                over_view_05_dog.Dog(name: 'dog05', breed: 'breed05')),
-      ],
-      child: MaterialApp(
-        title: 'Flutter Demo',
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-        ),
-        home: const MyHomePage(title: 'Flutter Provider Essential'),
-        onGenerateRoute: (settings) => AppRouter.onGenerateRoute(settings),
+    return MaterialApp(
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
       ),
+      home: const MyHomePage(title: 'Flutter Provider Essential'),
+      onGenerateRoute: (settings) => AppRouter.onGenerateRoute(settings),
     );
   }
 }

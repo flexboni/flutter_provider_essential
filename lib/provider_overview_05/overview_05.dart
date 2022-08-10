@@ -17,19 +17,24 @@ class _Overview05State extends State<Overview05> {
       appBar: AppBar(
         title: const Text('Provider 05'),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          mainAxisSize: MainAxisSize.min,
-          children: <Widget>[
-            Text(
-              '- name : ${context.watch<Dog>().name}',
-              style: const TextStyle(fontSize: 20),
+      body: ChangeNotifierProvider<Dog>(
+        create: (context) => Dog(name: 'dog05', breed: 'breed05'),
+        builder: (context, child) {
+          return Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisSize: MainAxisSize.min,
+              children: <Widget>[
+                Text(
+                  '- name : ${context.watch<Dog>().name}',
+                  style: const TextStyle(fontSize: 20),
+                ),
+                const SizedBox(height: 10),
+                const BreedAndAge(),
+              ],
             ),
-            const SizedBox(height: 10),
-            const BreedAndAge(),
-          ],
-        ),
+          );
+        },
       ),
     );
   }
