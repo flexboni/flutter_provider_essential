@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_provider_essential/app_router.dart';
-import 'package:flutter_provider_essential/provider_overview_02/model/dog.dart';
+import 'package:flutter_provider_essential/provider_overview_02/model/dog.dart'
+    as OverView02Dog;
+import 'package:flutter_provider_essential/provider_overview_04/model/dog.dart'
+    as OverView04Dog;
 import 'package:provider/provider.dart';
 
 void main() {
@@ -14,8 +17,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        Provider<Dog>(
-            create: (context) => Dog(name: 'Sun', breed: 'Bulldog', age: 3)),
+        Provider<OverView02Dog.Dog>(
+            create: (context) =>
+                OverView02Dog.Dog(name: 'Sun', breed: 'Bulldog', age: 3)),
+        ChangeNotifierProvider<OverView04Dog.Dog>(
+            create: (context) =>
+                OverView04Dog.Dog(name: 'dog04', breed: 'Bulldog')),
       ],
       child: MaterialApp(
         title: 'Flutter Demo',
@@ -43,6 +50,7 @@ final pages = <PageModel>[
   PageModel(name: 'OverView01', route: AppRoutes.overView01),
   PageModel(name: 'OverView02', route: AppRoutes.overView02),
   PageModel(name: 'OverView03', route: AppRoutes.overView03),
+  PageModel(name: 'OverView04', route: AppRoutes.overView04),
 ];
 
 class MyHomePage extends StatefulWidget {
