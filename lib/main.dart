@@ -57,6 +57,7 @@ final pages = <PageModel>[
   PageModel(name: 'OverView03', route: AppRoutes.overView03),
   PageModel(name: 'OverView04', route: AppRoutes.overView04),
   PageModel(name: 'OverView05', route: AppRoutes.overView05),
+  PageModel(name: 'OverView06', route: AppRoutes.overView06),
 ];
 
 class MyHomePage extends StatefulWidget {
@@ -78,29 +79,31 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: Container(
-        width: double.maxFinite,
-        padding: const EdgeInsets.symmetric(vertical: 30),
-        alignment: Alignment.topCenter,
-        child: Wrap(
-          spacing: 20,
-          children: [
-            Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: pages
-                  .map(
-                    (page) => ElevatedButton(
-                      onPressed: () =>
-                          Navigator.of(context).pushNamed(page.route),
-                      child: Text(
-                        page.name,
-                        style: const TextStyle(fontSize: 20),
+      body: SingleChildScrollView(
+        child: Container(
+          width: double.maxFinite,
+          padding: const EdgeInsets.symmetric(vertical: 30),
+          alignment: Alignment.topCenter,
+          child: Wrap(
+            spacing: 20,
+            children: [
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: pages
+                    .map(
+                      (page) => ElevatedButton(
+                        onPressed: () =>
+                            Navigator.of(context).pushNamed(page.route),
+                        child: Text(
+                          page.name,
+                          style: const TextStyle(fontSize: 20),
+                        ),
                       ),
-                    ),
-                  )
-                  .toList(),
-            ),
-          ],
+                    )
+                    .toList(),
+              ),
+            ],
+          ),
         ),
       ),
     );

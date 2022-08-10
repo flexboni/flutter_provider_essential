@@ -5,6 +5,7 @@ import 'package:flutter_provider_essential/provider_overview_02/overview_02.dart
 import 'package:flutter_provider_essential/provider_overview_03/overview_03.dart';
 import 'package:flutter_provider_essential/provider_overview_04/overview_04.dart';
 import 'package:flutter_provider_essential/provider_overview_05/overview_05.dart';
+import 'package:flutter_provider_essential/provider_overview_06/overview_06.dart';
 
 class AppRoutes {
   static const main = '/';
@@ -13,6 +14,7 @@ class AppRoutes {
   static const overView03 = '$main/over-view-03';
   static const overView04 = '$main/over-view-04';
   static const overView05 = '$main/over-view-05';
+  static const overView06 = '$main/over-view-06';
 }
 
 class AppRouter {
@@ -47,6 +49,12 @@ class AppRouter {
       case AppRoutes.overView05:
         return MaterialPageRoute<dynamic>(
           builder: (_) => const Overview05(),
+          settings: settings,
+        );
+
+      case AppRoutes.overView06:
+        return MaterialPageRoute<dynamic>(
+          builder: (_) => const Overview06(),
           settings: settings,
         );
 
