@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_provider_essential/main.dart';
-import 'package:flutter_provider_essential/provider_overview_01/overview_01.dart';
-import 'package:flutter_provider_essential/provider_overview_02/overview_02.dart';
-import 'package:flutter_provider_essential/provider_overview_03/overview_03.dart';
-import 'package:flutter_provider_essential/provider_overview_04/overview_04.dart';
-import 'package:flutter_provider_essential/provider_overview_05/overview_05.dart';
-import 'package:flutter_provider_essential/provider_overview_06/overview_06.dart';
-import 'package:flutter_provider_essential/provider_overview_07/overview_07.dart';
-import 'package:flutter_provider_essential/provider_overview_08/overview_08.dart';
-import 'package:flutter_provider_essential/provider_overview_09/overview_09.dart';
-import 'package:flutter_provider_essential/provider_overview_10/overview_10.dart';
-import 'package:flutter_provider_essential/provider_overview_12/overview_12.dart';
+import 'package:flutter_provider_essential/provider_overview/01/overview_01.dart';
+import 'package:flutter_provider_essential/provider_overview/02/overview_02.dart';
+import 'package:flutter_provider_essential/provider_overview/03/overview_03.dart';
+import 'package:flutter_provider_essential/provider_overview/04/overview_04.dart';
+import 'package:flutter_provider_essential/provider_overview/05/overview_05.dart';
+import 'package:flutter_provider_essential/provider_overview/06/overview_06.dart';
+import 'package:flutter_provider_essential/provider_overview/07/overview_07.dart';
+import 'package:flutter_provider_essential/provider_overview/08/overview_08.dart';
+import 'package:flutter_provider_essential/provider_overview/09/overview_09.dart';
+import 'package:flutter_provider_essential/provider_overview/10/overview_10.dart';
+import 'package:flutter_provider_essential/provider_overview/12/overview_12.dart';
 
 class AppRoutes {
   static const main = '/';

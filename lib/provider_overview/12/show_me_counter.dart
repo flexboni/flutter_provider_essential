@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_provider_essential/provider_overview_12/counter.dart';
+import 'package:flutter_provider_essential/provider_overview/12/counter.dart';
 import 'package:provider/provider.dart';
 
 class ShowMeCounter extends StatelessWidget {

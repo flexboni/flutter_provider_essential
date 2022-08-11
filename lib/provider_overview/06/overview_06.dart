@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_provider_essential/provider_overview_05/model/dog.dart';
-import 'package:flutter_provider_essential/provider_overview_06/model/babies.dart';
+import 'package:flutter_provider_essential/provider_overview/05/model/dog.dart';
+import 'package:flutter_provider_essential/provider_overview/06/model/babies.dart';
 import 'package:provider/provider.dart';
 
 class Overview06 extends StatefulWidget {

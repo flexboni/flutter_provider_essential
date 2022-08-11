@@ -1,26 +1,29 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_provider_essential/provider_overview_05/model/dog.dart';
+import 'package:flutter_provider_essential/provider_overview/05/model/dog.dart';
 import 'package:provider/provider.dart';
 
-class Overview10 extends StatefulWidget {
-  const Overview10({Key? key}) : super(key: key);
+class Overview08 extends StatefulWidget {
+  const Overview08({Key? key}) : super(key: key);
 
   @override
-  State<Overview10> createState() => _Overview10State();
+  State<Overview08> createState() => _Overview08State();
 }
 
-class _Overview10State extends State<Overview10> {
+class _Overview08State extends State<Overview08> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Provider 10'),
+        title: const Text('Provider 08'),
       ),
-      body: ChangeNotifierProvider<Dog>(
-        create: (context) => Dog(name: 'dog10', breed: 'breed10', age: 10),
-        child: Selector<Dog, String>(
-          selector: (BuildContext context, Dog dog) => dog.name,
-          builder: (BuildContext context, String name, Widget? child) {
+      body: MultiProvider(
+        providers: [
+          ChangeNotifierProvider<Dog>(
+              create: (context) =>
+                  Dog(name: 'dog08', breed: 'breed08', age: 8)),
+        ],
+        child: Consumer<Dog>(
+          builder: (BuildContext context, Dog dog, Widget? child) {
             return Center(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -29,7 +32,7 @@ class _Overview10State extends State<Overview10> {
                   child!, // rebuild 제외된 widget
                   const SizedBox(height: 20),
                   Text(
-                    '- name : $name',
+                    '- name : ${dog.name}',
                     style: const TextStyle(fontSize: 20),
                   ),
                   const SizedBox(height: 20),
@@ -56,13 +59,12 @@ class BreedAndAge extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Selector<Dog, String>(
-      selector: (BuildContext context, Dog dog) => dog.breed,
-      builder: (context, breed, _) {
+    return Consumer<Dog>(
+      builder: (_, dog, __) {
         return Column(
           children: <Widget>[
             Text(
-              '- breed: $breed',
+              '- breed: ${dog.breed}',
               style: const TextStyle(fontSize: 20),
             ),
             const SizedBox(height: 10),
@@ -81,13 +83,12 @@ class Age extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Selector<Dog, int>(
-      selector: (context, dog) => dog.age,
-      builder: (_, age, __) {
+    return Consumer<Dog>(
+      builder: (_, dog, __) {
         return Column(
           children: [
             Text(
-              '- age: $age',
+              '- age: ${dog.age}',
               style: const TextStyle(fontSize: 20),
             ),
             const SizedBox(height: 20),

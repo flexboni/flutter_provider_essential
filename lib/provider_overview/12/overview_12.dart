@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_provider_essential/provider_overview_05/model/dog.dart';
-import 'package:flutter_provider_essential/provider_overview_12/counter.dart';
-import 'package:flutter_provider_essential/provider_overview_12/show_me_counter.dart';
+import 'package:flutter_provider_essential/provider_overview/05/model/dog.dart';
+import 'package:flutter_provider_essential/provider_overview/12/counter.dart';
+import 'package:flutter_provider_essential/provider_overview/12/show_me_counter.dart';
 import 'package:provider/provider.dart';
 
 class Overview12 extends StatefulWidget {
