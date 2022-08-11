@@ -22,33 +22,31 @@ class _Overview08State extends State<Overview08> {
               create: (context) =>
                   Dog(name: 'dog08', breed: 'breed08', age: 8)),
         ],
-        builder: (_, __) {
-          return Consumer<Dog>(
-            builder: (BuildContext context, Dog dog, Widget? child) {
-              return Center(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  mainAxisSize: MainAxisSize.min,
-                  children: <Widget>[
-                    child!, // rebuild 제외된 widget
-                    const SizedBox(height: 20),
-                    Text(
-                      '- name : ${dog.name}',
-                      style: const TextStyle(fontSize: 20),
-                    ),
-                    const SizedBox(height: 20),
-                    const BreedAndAge(),
-                  ],
-                ),
-              );
-            },
-            // rebuild 되지 않는 widget을 적용할 수 있다.
-            child: const Text(
-              'I Like dogs very much',
-              style: TextStyle(fontSize: 20),
-            ),
-          );
-        },
+        child: Consumer<Dog>(
+          builder: (BuildContext context, Dog dog, Widget? child) {
+            return Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  child!, // rebuild 제외된 widget
+                  const SizedBox(height: 20),
+                  Text(
+                    '- name : ${dog.name}',
+                    style: const TextStyle(fontSize: 20),
+                  ),
+                  const SizedBox(height: 20),
+                  const BreedAndAge(),
+                ],
+              ),
+            );
+          },
+          // rebuild 되지 않는 widget을 적용할 수 있다.
+          child: const Text(
+            'I Like dogs very much',
+            style: TextStyle(fontSize: 20),
+          ),
+        ),
       ),
     );
   }
