@@ -1,13 +1,37 @@
-# Chapter19. Provider Access - Anonymous router access
+# Chapter22~27. ProxyProvider
 
-`.value` constructor은 **Provider Access** 와 연관이 있다.
+ProxyProvider는 다른 Provider의 값에 의존해 값을 만든다.
 
-- Anonymous router access
-- Named route access
-- Generated route access
+## 형태
 
-## Error
+```dart
+ProxyProvider({
+    Key? key,
+    Create<R>? create,
+    required ProxyProviderBuilder<T, R> update,
+    UpdateShouldNotify<R>? updateShouldNotify,
+    Dispose<R>? dispose,
+    bool? lazy,
+    TransitionBuilder? builder,
+    Widget? child,
+})
 
-Router을 통해 전환된 별도의 화면은 같은 부모의 Provider에 속하지 못한다.
+typedef ProxyProviderBuilder<T, R> = R Function(
+    BuildContext context,
+    T value,
+    R? previous, // 이전 값
+)
 
-<img width="1083" alt="image" src="https://user-images.githubusercontent.com/29271126/184061271-79c29f3b-5044-4f17-ac3a-535386c30783.png">
+typedef ProxyProviderBuilder2<T, T2, R> = R Function(
+    BuildContext context,
+    T value,
+    T2 value2,
+    R? previous, // 이전 값
+)
+```
+
+## Update 되는 경우
+
+- 의존하는 Provider의 값을 처음 얻게 되는 경우
+- 의존하는 Provider의 값이 변하는 경우
+- ProxyProvider가 rebuild 되는 경우
