@@ -14,17 +14,17 @@ import 'package:flutter_provider_essential/provider_overview_12/overview_12.dart
 
 class AppRoutes {
   static const main = '/';
-  static const overView01 = '$main/over-view-01';
-  static const overView02 = '$main/over-view-02';
-  static const overView03 = '$main/over-view-03';
-  static const overView04 = '$main/over-view-04';
-  static const overView05 = '$main/over-view-05';
-  static const overView06 = '$main/over-view-06';
-  static const overView07 = '$main/over-view-07';
-  static const overView08 = '$main/over-view-08';
-  static const overView09 = '$main/over-view-09';
-  static const overView10 = '$main/over-view-10';
-  static const overView12 = '$main/over-view-12';
+  static const overView01 = '/over-view-01';
+  static const overView02 = '/over-view-02';
+  static const overView03 = '/over-view-03';
+  static const overView04 = '/over-view-04';
+  static const overView05 = '/over-view-05';
+  static const overView06 = '/over-view-06';
+  static const overView07 = '/over-view-07';
+  static const overView08 = '/over-view-08';
+  static const overView09 = '/over-view-09';
+  static const overView10 = '/over-view-10';
+  static const overView12 = '/over-view-12';
 }
 
 class AppRouter {
