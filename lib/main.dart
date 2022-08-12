@@ -44,6 +44,7 @@ final pages = <PageModel>[
   PageModel(name: 'OverView10', route: AppRoutes.overView10),
   PageModel(name: 'OverView12', route: AppRoutes.overView12),
   PageModel(name: 'OverView16', route: AppRoutes.overView16),
+  PageModel(name: 'OverView17', route: AppRoutes.overView17),
 ];
 
 class MyHomePage extends StatefulWidget {
