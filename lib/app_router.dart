@@ -12,7 +12,9 @@ import 'package:flutter_provider_essential/provider_overview/09/overview_09.dart
 import 'package:flutter_provider_essential/provider_overview/10/overview_10.dart';
 import 'package:flutter_provider_essential/provider_overview/12/overview_12.dart';
 import 'package:flutter_provider_essential/provider_overview/16/overview_16.dart';
+import 'package:flutter_provider_essential/provider_overview/17/app_provider.dart';
 import 'package:flutter_provider_essential/provider_overview/17/overview17.dart';
+import 'package:provider/provider.dart';
 
 class AppRoutes {
   static const main = '/';
@@ -110,7 +112,10 @@ class AppRouter {
 
       case AppRoutes.overView17:
         return MaterialPageRoute<dynamic>(
-          builder: (_) => const Overview17(),
+          builder: (_) => ChangeNotifierProvider.value(
+            value: AppProvider(),
+            child: const Overview17(),
+          ),
           settings: settings,
         );
 
