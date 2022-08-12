@@ -26,7 +26,21 @@ class _Overview17State extends State<Overview17> {
           builder: (context, child) {
             final appState = context.watch<AppProvider>().state;
 
-            Future<void> submit() async {
+            if (appState == AppState.success) {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (_) => SuccessPage()),
+              );
+            } else if (appState == AppState.error) {
+              showDialog(
+                context: context,
+                builder: (_) => AlertDialog(
+                  content: const Text('Something went wrong'),
+                ),
+              );
+            }
+
+            void submit() {
               setState(() {
                 autovalidateMode = AutovalidateMode.always;
               });
@@ -36,59 +50,50 @@ class _Overview17State extends State<Overview17> {
 
               form.save();
 
-              try {
-                await context.read<AppProvider>().getResult(searchTerm!);
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (_) => SuccessPage()),
-                );
-              } catch (e) {
-                showDialog(
-                  context: context,
-                  builder: (_) => AlertDialog(
-                    content: const Text('Something went wrong'),
-                  ),
-                );
-              }
+              context.read<AppProvider>().getResult(searchTerm!);
             }
 
-            return Center(
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 30),
-                child: Form(
-                  key: _formKey,
-                  autovalidateMode: autovalidateMode,
-                  child: ListView(
-                    shrinkWrap: true,
-                    children: [
-                      TextFormField(
-                        autofocus: true,
-                        decoration: InputDecoration(
-                          border: OutlineInputBorder(),
-                          label: Text('Search'),
-                          prefixIcon: Icon(Icons.search),
+            return GestureDetector(
+              onTap: () => Focus.of(context).unfocus(),
+              child: Center(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 30),
+                  child: Form(
+                    key: _formKey,
+                    autovalidateMode: autovalidateMode,
+                    child: ListView(
+                      shrinkWrap: true,
+                      children: [
+                        TextFormField(
+                          autofocus: true,
+                          decoration: InputDecoration(
+                            border: OutlineInputBorder(),
+                            label: Text('Search'),
+                            prefixIcon: Icon(Icons.search),
+                          ),
+                          validator: (String? value) {
+                            if (value == null || value.trim().isEmpty) {
+                              return 'Search term required';
+                            }
+                            return null;
+                          },
+                          onSaved: (String? value) {
+                            searchTerm = value;
+                          },
                         ),
-                        validator: (String? value) {
-                          if (value == null || value.trim().isEmpty) {
-                            return 'Search term required';
-                          }
-                          return null;
-                        },
-                        onSaved: (String? value) {
-                          searchTerm = value;
-                        },
-                      ),
-                      const SizedBox(height: 20),
-                      ElevatedButton(
-                        onPressed: appState == AppState.loading ? null : submit,
-                        child: Text(
-                          appState == AppState.loading
-                              ? 'Loading...'
-                              : 'Get Result',
-                          style: TextStyle(fontSize: 24),
+                        const SizedBox(height: 20),
+                        ElevatedButton(
+                          onPressed:
+                              appState == AppState.loading ? null : submit,
+                          child: Text(
+                            appState == AppState.loading
+                                ? 'Loading...'
+                                : 'Get Result',
+                            style: TextStyle(fontSize: 24),
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ),
               ),
